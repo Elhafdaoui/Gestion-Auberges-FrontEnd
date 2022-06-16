@@ -1,0 +1,45 @@
+.icon-img-Login{
+    height: 5.9rem;
+    margin-bottom: .5rem;
+}
+.icon-img-Login:hover{
+    height:6.6rem;
+    transition: .6s;
+}
+
+.authentification{
+    height:38rem;
+}
+.Toastify__toast {
+    //border-radius: 255px 25px 255px 25px/25px 225px 25px 255px;
+    border-radius: 0;
+    text-decoration: none;
+}
+
+.Toastify__toast--info {
+    color:#fff;
+    background-color: #17a2b8;
+    border-color:#17a2b8 ;
+}
+
+.Toastify__toast-theme--colored.Toastify__toast--success {
+    color:#fff;
+    background-color: #28a752;
+    border-color: #28a745;
+}
+
+.Toastify__toast-theme--colored.Toastify__toast--error{
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.buttons{
+    display: flex;
+    .button1{
+        margin-left: 8px;
+    }
+    .button2{
+        margin-right: 8px;
+    }
+}

@@ -1,0 +1,83 @@
+.svg{
+    height:auto;
+}
+.body
+{
+  background-color:#141019;
+  background: radial-gradient(at 50% -20%, #908392, #0d060e) fixed;
+  
+}
+
+
+#handboy
+{
+   animation: swing ease-in-out 1.3s infinite alternate;
+    transform-origin: 98% 98%;
+    transform-box: fill-box;
+    
+}
+
+
+#girllight
+{
+   animation: swing ease-in-out 1.3s infinite alternate;
+    transform-origin: 0% 97%;
+    transform-box: fill-box;
+}
+
+#hairgirl
+{
+    animation: swinghair ease-in-out 1.3s infinite alternate;
+   transform-origin: 60% 0%;
+    transform-box: fill-box;
+  
+}
+
+#zero
+{
+  transform-origin:bottom;
+  transform-box:fill-box;  
+}
+
+
+/*************swing************/
+@keyframes swing {
+    0% { transform: rotate(10deg); }
+    100% { transform: rotate(-10deg); }
+}
+
+
+/*************swing hair************/
+@keyframes swinghair {
+    0% { transform: rotate(6deg); }
+    100% { transform: rotate(-6deg); }
+}
+
+.Mylink{
+    color:whitesmoke;
+    width:auto;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    margin-left: 520px;
+    margin-top: -100px;
+
+}
+.Mytext{
+    border: 1px solid #908392;
+    color: whitesmoke;
+    border-radius: 20px;
+    padding:5px;
+    cursor: pointer;
+
+}
+.Mytext:hover{
+    background: radial-gradient(at 50% -20%, #908392, #0d060e);
+}
+.footer{
+    height: 10px;
+}
+.monMessage{
+    color:whitesmoke;
+    margin-top: -70px;
+}

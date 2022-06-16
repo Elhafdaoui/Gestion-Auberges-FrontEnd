@@ -1,0 +1,40 @@
+.table {
+  .cellWrapper {
+    display: flex;
+    align-items: center;
+
+    .image {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      margin-right: 10px;
+      object-fit: cover;
+    }
+  }
+  
+
+
+  .statutReservation {
+    padding: 5px;
+    border-radius: 5px;
+
+    &.Libre {
+      margin-left:5px;
+      color: green;
+      background-color: rgba(0, 128, 0, 0.151);
+    }
+    &.Occupée {
+      color: goldenrod;
+      background-color: rgba(189, 189, 3, 0.103);
+    }
+    &.Réservée {
+      background: red;
+      background-color: rgba(243, 11, 11, 0.219);
+      margin-left: 8px;
+    }
+  }
+}
+
+.methodePaiement{
+  margin-left: 50px;
+}

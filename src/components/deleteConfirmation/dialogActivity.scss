@@ -1,0 +1,41 @@
+.deleteButton {
+    padding: 2px 5px;
+    border-radius: 5px;
+    color: crimson;
+    border: 1px dotted rgba(220, 20, 60, 0.6);
+    cursor: pointer;
+    border-radius: 20px;
+  }
+  .deleteButton:hover{
+    font-size: 17px;
+    background-color:#e5213b ;
+    color: white;
+    transition: 0.6s;
+    border-radius: 20px;
+  }
+  .cancelButton {
+    padding: 2px 5px;
+    border-radius: 5px;
+    color: rgb(10, 88, 42);
+    border: 1px dotted rgba(7, 54, 46, 0.596);
+    cursor: pointer;
+    border-radius: 20px;
+  }
+  .cancelButton:hover{
+    font-size: 17px;
+    background-color:#0b4d2c ;
+    color: white;
+    transition: 0.6s;
+    border-radius: 20px;
+  }
+
+  /* Hide scrollbar for Chrome, Safari and Opera source w3school */
+.dialogContent::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox source w3school */
+.dialogContent {
+  -ms-overflow-style: none;  /* IE and Edge source w3school */
+  scrollbar-width: none;  /* Firefox */
+}
