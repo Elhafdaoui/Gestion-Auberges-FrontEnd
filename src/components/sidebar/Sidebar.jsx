@@ -13,13 +13,15 @@ import FastfoodIcon from '@mui/icons-material/Fastfood';
 import TipsAndUpdatesOutlinedIcon from '@mui/icons-material/TipsAndUpdatesOutlined';
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import CurrencyExchangeIcon from '@mui/icons-material/CurrencyExchange';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { DarkModeContext } from "../../context/darkModeContext";
 import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 const Sidebar = () => {
-
+  const navigate=useNavigate()
   const { dispatch } = useContext(DarkModeContext);
+  const {currentUser} = useContext(AuthContext)
   return (
     <div className="sidebar">
       <div className="top">
@@ -105,17 +107,24 @@ const Sidebar = () => {
             <InsertChartIcon className="icon" />
             <span >Stats</span>
           </li>     
-          </Link>     
+          </Link>
+               
           <p className="title">USER</p>
+          {currentUser.roles==="admin"?
           <li>
-            <AccountCircleOutlinedIcon className="icon" />
-            <Link to="/dashboard/users"><span>Utilisateurs</span></Link>
-          </li>
+          <AccountCircleOutlinedIcon className="icon" />
+          <Link to="/dashboard/users">
+            <span>Utilisateurs</span>
+          </Link>            
+        </li>:""}
+          
           <li>
             <ExitToAppIcon className="icon" />
             <Link to="/">
             <span onClick={()=>{
               localStorage.removeItem('user')
+              navigate("/")
+              window.location.reload()
             }}>Déconnexion</span>
             </Link>
           </li>

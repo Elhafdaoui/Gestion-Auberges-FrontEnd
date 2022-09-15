@@ -51,7 +51,7 @@ return (
                   <span className="itemValue">{data.phone}</span>
                 </div>
                 <div className="detailItem">
-                  <span className="itemKey">Address:</span>
+                  <span className="itemKey">Adresse:</span>
                   <span className="itemValue">
                     {data.adresse}
                   </span>

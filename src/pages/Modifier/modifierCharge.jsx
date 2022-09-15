@@ -145,6 +145,9 @@ else if(hasWhiteSpace(values.datePaiement)===true){
 else if(!regexDate.test(values.datePaiement)){
   errors.datePaiement="Le format de la date est invalide!";
 }
+else if(parseInt(values.datePaiement.split('/',2)[1])<parseInt(values.dateFacturation.split('/',2)[1]) || parseInt(values.datePaiement.split('/')[2]) < parseInt(values.dateFacturation.split('/')[2]) || (parseInt(values.datePaiement.split('/',2)[1]) === parseInt(values.dateFacturation.split('/',2)[1]) && parseInt(values.datePaiement.split('/',2)[0]) < parseInt(values.dateFacturation.split('/',2)[0]) )   ){
+  errors.datePaiement="Cette date est invalide!"
+}
 
 //Statut de la charge
 if(!values.statut)

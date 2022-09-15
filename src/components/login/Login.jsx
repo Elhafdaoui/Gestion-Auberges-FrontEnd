@@ -12,9 +12,9 @@ import {AuthContext} from "../../context/AuthContext";
 import LoginFooter from "./LoginFooter"
 
 //import { useNavigate } from 'react-router-dom';
-import { Link, Navigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 const Login = () => {
-
+    const navigate = useNavigate()
     // //Restreindre l'accés d'un admin
     // const navigate=useNavigate()
     // const login=()=>{
@@ -65,9 +65,10 @@ const Login = () => {
             body:JSON.stringify(formValues)
         }).then((resp)=>{
             resp.json().then((r)=>{
-                if(r==="null"){
+                console.log(r)
+                if(r===null){
                     setIsLoggedIn(false);
-                    // console.log(r)
+                    console.log(r)
                     toast.warn("Invalid email or password😕❗  ", {
                         theme:"colored",
                         width:"auto",
@@ -79,11 +80,10 @@ const Login = () => {
                       });
                 }
                 else{
-                    console.log(r.email)
                     utilisateurs.forEach(utilisateur=>{
-                        if(utilisateur.email===r.email && utilisateur.password===r.password){
-                            user=utilisateur
-                            dispatch({type:"LOGIN",payload:user})
+                        if(utilisateur.email===r.email){
+                            console.log(utilisateur)
+                            dispatch({type:"LOGIN",payload:utilisateur})
                         }
                     })
                     
@@ -98,6 +98,7 @@ const Login = () => {
                         progress: undefined,
                         id:1
                       });
+                      navigate("/dashboard")
                 }
             })
         })
@@ -206,8 +207,8 @@ const Login = () => {
                                 
                                 <Button className="button1" variant="btn btn-outline-primary " type="submit" /*onClick={login}*/ >
                                     
-                                    {Object.keys(formErrors).length===0 && isSubmit &&isLoggedIn  ?<Link to="/dashboard"><span style={{color:"white"}}>S'authentifier</span></Link>:"S'authentifier"}  
-                                
+                                    {/* {Object.keys(formErrors).length===0 && isSubmit &&isLoggedIn  ?<Link to="/dashboard"><span style={{color:"white"}}>S'authentifier</span></Link>:"S'authentifier"}   */}
+                                    <span style={{color:"white"}}>S'authentifier</span>
                                 </Button>
 
                             </div>

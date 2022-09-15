@@ -5,7 +5,7 @@ import {Col,Container,Row,Form,Button} from 'react-bootstrap';
 import Authentification from '../../assets/Authentification.png'
 import './SignUp.scss'
 import Welcome from '../WelcomeHeader/Welcome';
-import { Link, Navigate} from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 import TextField from '@mui/material/TextField';
 import { toast, ToastContainer } from "react-toastify";
 import InputLabel from '@mui/material/InputLabel';
@@ -17,7 +17,7 @@ import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUpload
 import{storage} from "../../firebase";
 
 const SignUp = () => {
-
+    const navigate = useNavigate()
     //Valeur initiales des champs
 const initialValues={
     username:"",
@@ -34,7 +34,6 @@ const [file, setFile] = useState(""); //Image
     const handleChange = (e) => {
         const {name,value}=e.target;
         setFormValues({...formValues, [name]:value});
-        console.log(formValues)
     }
 
 
@@ -85,7 +84,7 @@ const [file, setFile] = useState(""); //Image
                         progress: undefined,
                         id:1
                       });
-                      <Navigate to="../"/>
+                      navigate("/")
                 }
             })
         })
@@ -136,6 +135,12 @@ const [file, setFile] = useState(""); //Image
         }
         else if(!regex.test(values.email)){
             errors.email="Format de l'email est invalide!";
+        }
+        if(!values.confirmEmail){
+            errors.confirmEmail =" Veuillez confirmer l'email ! ";
+        }
+        else if(values.email!==values.confirmEmail){
+            errors.confirmEmail="Confirmation d'email incorrecte!";
         }
         if(!values.password){
             errors.password = "Le mot de passe est obligatoire!";
@@ -276,6 +281,11 @@ const [file, setFile] = useState(""); //Image
                 <TextField color={Object.keys(formErrors).length===0?'success':'error'} variant="standard" label="Email" className='d-flex' name="email" type="email" value={formValues.email} onChange={handleChange} />
             </Form.Group>
                 <p style={{color:"red"}}> {formErrors.email} </p>
+
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                <TextField color={Object.keys(formErrors).length===0?'success':'error'} variant="standard" label="Confirmation de l'email" className='d-flex' name="confirmEmail" type="email" value={formValues.confirmEmail} onChange={handleChange} />
+            </Form.Group>
+                <p style={{color:"red"}}> {formErrors.confirmEmail} </p>
             
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <TextField color={Object.keys(formErrors).length===0?'success':'error'} variant="standard" label="Phone" className='d-flex' name="phone" type="text" value={formValues.phone} onChange={handleChange} />
@@ -316,7 +326,8 @@ const [file, setFile] = useState(""); //Image
                 </FormControl>
         </Form.Group>
             <Button variant="btn btn-outline-primary" type="submit" onClick={handleSubmit}>
-                {Object.values(formErrors).length===0 && isSubmit ? <Link to="/"><span style={{color:"white"}}>S'inscrire</span></Link>:<Link to="#"><span style={{color:"white"}}>S'inscrire</span></Link>}
+            {/* {Object.values(formErrors).length===0 && isSubmit ? <Link to="/"><span style={{color:"white"}}>S'inscrire</span></Link>:<Link to="#"><span style={{color:"white"}}>S'inscrire</span></Link>} */}
+                <span style={{color:"white"}}>S'inscrire</span>
             </Button>
 
             <Button variant="btn btn-outline-primary " >

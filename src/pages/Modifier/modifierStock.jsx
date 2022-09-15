@@ -306,7 +306,7 @@ console.log(newProduit)
           </div>
           <div class="input-box">
             <span class="details">Cin</span>
-            <input name="cin" id="cin" type="text" placeholder="J530908" value={produit.cin}  required onChange={handleChange}/>
+            <input name="cin" id="cin" type="text" placeholder="J530908" value={produit.cin}  required onChange={handleChange} disabled/>
             <p style={{color:"red",marginTop:"8px"}}> {formErrors.cin} </p>
           </div>
           <div class="input-box">

@@ -216,8 +216,6 @@ const NewReservation = ({ inputs, title }) => {
         setFormErrors(validate(data));
         setData({...data,[id]:value});
       };
-      console.log(formErrors)
-      console.log(data)
 
     toast.configure({
         autoClose: 2500,

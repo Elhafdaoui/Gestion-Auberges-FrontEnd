@@ -153,6 +153,9 @@ else if(hasWhiteSpace(values.dateSortie)===true){
 else if(!regexDate.test(values.dateSortie)){
   errors.dateSortie="Le format de la date est invalide!";
 }
+else if(parseInt(values.dateSortie.split('/',2)[1])<parseInt(values.dateArrivee.split('/',2)[1]) || parseInt(values.dateSortie.split('/')[2]) < parseInt(values.dateArrivee.split('/')[2]) || (parseInt(values.dateSortie.split('/',2)[1]) === parseInt(values.dateArrivee.split('/',2)[1]) && parseInt(values.dateSortie.split('/',2)[0]) < parseInt(values.dateArrivee.split('/',2)[0]) )   ){
+  errors.dateSortie="Cette date est invalide!"
+}
 
 // Vérification du type de client : Avec ou sans réservation
 if(!values.type){
@@ -310,6 +313,11 @@ return errors;
             <span class="details">Nationalité</span>
             <input name="nationalite" id="nationalite" type="text" placeholder="Marocaine" value={user.nationalite}  required onChange={handleChange}/>
             <p style={{color:"red",marginTop:"8px"}}> {formErrors.nationalite} </p>
+          </div>
+          <div class="input-box">
+            <span class="details">Adresse</span>
+            <input name="adresse" id="adresse" type="text" placeholder="Marocaine" value={user.adresse}  required onChange={handleChange}/>
+            <p style={{color:"red",marginTop:"8px"}}> {formErrors.adresse} </p>
           </div>
           <div class="input-box">
             <span class="details">Origine</span>

@@ -37,7 +37,7 @@ const List = () => {
     //Filter les réservations de telle sorte à obtenir que celles de notre client
     const reservationList=[];
   Array.from(reservations).map(reservation => {
-      if(reservation.client===client.client || reservation.cin === client.cin)
+      if(reservation.client===client.client && reservation.cin === client.cin)
           reservationList.push(reservation)
   })
 
@@ -101,7 +101,7 @@ const List = () => {
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell className="tableCell">ID</TableCell>
+            {/* <TableCell className="tableCell">ID</TableCell> */}
             <TableCell className="tableCell">Chambre</TableCell>
             <TableCell className="tableCell">Client</TableCell>
             <TableCell className="tableCell">Cin</TableCell> {/* Statut au paravant et a été place en dernier après méthode de paiement */}
@@ -113,7 +113,7 @@ const List = () => {
         <TableBody>
           {reservationList.map((row) => (
             <TableRow key={row.id}>
-              <TableCell className="tableCell">{row.id}</TableCell>
+              {/* <TableCell className="tableCell">{row.id}</TableCell> */}
               <TableCell className="tableCell">
                 <div className="cellWrapper">
                   <img src={row.img} alt="" className="image" />

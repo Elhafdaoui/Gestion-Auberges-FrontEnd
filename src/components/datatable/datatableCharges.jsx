@@ -34,7 +34,6 @@ import UpdateDialog from "../../pages/Modifier/modifierCharge";
         method:"DELETE",
     })
     setData(data.filter((item) => item.id !== id));
-  console.log(id)
 
   toast.error("Charge supprimer avec succès ❗ ", {
   theme:"colored",

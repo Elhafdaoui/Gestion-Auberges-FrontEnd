@@ -137,6 +137,9 @@ const New = ({ inputs, title }) => {
     else if(!regexDate.test(values.dateSortie)){
       errors.dateSortie="Le format de la date est invalide!";
     }
+    else if(parseInt(values.dateSortie.split('/',2)[1])<parseInt(values.dateArrivee.split('/',2)[1]) || parseInt(values.dateSortie.split('/')[2]) < parseInt(values.dateArrivee.split('/')[2]) || (parseInt(values.dateSortie.split('/',2)[1]) === parseInt(values.dateArrivee.split('/',2)[1]) && parseInt(values.dateSortie.split('/',2)[0]) < parseInt(values.dateArrivee.split('/',2)[0]) )   ){
+      errors.dateSortie="Cette date est invalide!"
+    }
 
     // Vérification du type de client : Avec ou sans réservation
     if(!values.type){
@@ -209,6 +212,7 @@ const New = ({ inputs, title }) => {
 
   }
 
+  console.log(formErrors)
 
 
       useEffect(()=>{
@@ -234,7 +238,7 @@ const New = ({ inputs, title }) => {
       });
       const handleSubmit=(e)=>{
         e.preventDefault()
-        // setFormErrors(validate(data));
+        setFormErrors(validate(data));
         setIsSubmit(true)
         const user={data}
         console.log(user)

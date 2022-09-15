@@ -128,6 +128,12 @@ const totalRecettes=montantActivite+totalReservationJour+totalConsommationJour /
 //total
 const total=totalRecettes-totalCharges
 
+//Fixer un sueil( but | Objectif) pour le pourcentage
+const seuil=5000;
+
+//La moyenne = total/seuil
+
+const moyenne=total/seuil*100;
 
   return (
     <div className="featured">
@@ -137,7 +143,7 @@ const total=totalRecettes-totalCharges
       </div>
       <div className="bottom">
         <div className="featuredChart">
-          <CircularProgressbar value={70} text={"70%"} strokeWidth={5} />
+          <CircularProgressbar value={moyenne} text={moyenne+"%"} strokeWidth={5} />
         </div>
         <p className="title">Recette du jour</p>
         <p className="amount">{total} DH</p>
